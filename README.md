@@ -57,7 +57,8 @@ FAQ
 
 Probably. Pull-requests welcome.
 
-**The app can be scale to large extend to use mutiple python utilities
+**The app can be scale to large extend to use mutiple python utilities**
+
 ```
 	# Use Script for reference
 	scale_quicklaunch.py
