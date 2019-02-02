@@ -13,18 +13,18 @@ The UI provide interface to do task on click button.
 Note: Currently it is with Python 3, Pull requests for Quick Launcher welcome!
 
 ## Installation:
----------------
+------
 To use the latest developmental version without installing:
 
-    ``` 
+``` 
     git clone git@github.com:raahoolkumeriya/Quick-Launcher.git
-    ```
+```
 
 ## Requirement (Python Packages added in script): 
 To install all dependencies 
-    ``` 
+``` 
     pip -r requirements.txt
-    ```
+```
 
 Package|Version
 -----|-----
@@ -36,9 +36,9 @@ pyperclip|1.7.0
 
 ## Usage
 -------
-    ``` 
+``` 
     python quicklaunch.py
-    ```
+```
 
 Development
 -----------
