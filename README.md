@@ -1,6 +1,6 @@
 # Quick-Launcher
 
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2499/badge)](https://bestpractices.coreinfrastructure.org/projects/2499)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2499/badge)](https://bestpractices.coreinfrastructure.org/projects/2499) [![CircleCI](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master.svg?style=svg)](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master)
 
 Python app to perform day-to-day task on single click 
 
