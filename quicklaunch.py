@@ -11,7 +11,7 @@ from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
 import os
 from PyQt5 import QtGui as qt
 import subprocess
-import win32com.client as win32
+#import win32com.client as win32   #Enable this for Windows platform
 #import external python scripts if you are calling from subprocess
 
 # To write data from database into excle import xlsxwriter
@@ -190,9 +190,11 @@ class Ui_QuickLaunch(QWidget):
 
     def triggerShellScript(self):
         """this fuction use under linux system"""	
-        print(""" os.system("sh /path/to/script/laoction/script_name.sh")""" )
+        os.system("sh /path/to/script/laoction/script_name.sh")
 
     def sendAutomatedMail(self):
+        pass
+        '''		
         reply = QMessageBox.question(self, 'Action Require', "Do you want to send mail?", QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel, QMessageBox.Cancel)
         if reply == QMessageBox.Yes:
             print("Sending autoamte mail")
@@ -228,7 +230,7 @@ This is automate mail sent from python Quick launcher app.
             print("Mail sent successfully!!!!")
         else:
             print("AAAArrrr!!! Mission Aborted!!!!")
-
+        '''
         
     def sendReportFromDatabase(self):
         from sqlalchemy import create_engine
