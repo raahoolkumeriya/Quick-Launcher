@@ -17,7 +17,7 @@ import subprocess
 # To write data from database into excle import xlsxwriter
 import xlsxwriter
 #For Putty login import below package
-from pywinauto.application import Application
+#from pywinauto.application import Application      #Enable this for Windows platform
 import time
         
 
