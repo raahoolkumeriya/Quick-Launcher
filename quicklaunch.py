@@ -7,14 +7,22 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QMessageBox
 import os
 from PyQt5 import QtGui as qt
 import subprocess
+import win32com.client as win32
 #import external python scripts if you are calling from subprocess
 
+# To write data from database into excle import xlsxwriter
+import xlsxwriter
+#For Putty login import below package
+from pywinauto.application import Application
+import time
+        
 
 
-class Ui_QuickLaunch(object):
+class Ui_QuickLaunch(QWidget):
     def setupUi(self, QuickLaunch):
         QuickLaunch.setObjectName("QuickLaunch")
         QuickLaunch.setEnabled(True)
@@ -82,10 +90,8 @@ class Ui_QuickLaunch(object):
     
     def PRODputtyLogin(self):
         # For windows to launch Putty 
-        from pywinauto.application import Application
-        import time
-
-        app = Application().start(cmd_line=u'putty.exe username@hostname -pw %s' % sys.argv[2])
+        #app = Application().start(cmd_line=u'putty.exe <USERNAME>@<HOSTNAME> -pw <PASSWORD>') # password hardcoded
+        app = Application().start(cmd_line=u'putty.exe raahool@localhost -pw %s' % sys.argv[2])  # password provided as CLI positional parameter
         putty  = app.Putty()
         putty.Wait('ready')
         time.sleep(5)
@@ -97,10 +103,7 @@ class Ui_QuickLaunch(object):
         putty.TypeKeys("./execute_script.sh")
         putty.TypeKeys("{ENTER}")
         
-
     def writeDatabaseDataToExcel(self):
-        import xlsxwriter
-
         # Create an new Excel file and add a worksheet.
         workbook = xlsxwriter.Workbook('Dashboard_Report.xlsx')
         worksheet = workbook.add_worksheet()
@@ -120,8 +123,8 @@ class Ui_QuickLaunch(object):
         host='127.0.0.1'
         port=1521
         sid='XE'
-        user='XXXXXXXXXXXXX'
-        password='XXXXXXXXXXXX'
+        user='databaseuser'
+        password='Password#1'
         sid = cx_Oracle.makedsn(host, port, sid=sid)
 
         cstr = 'oracle://{user}:{password}@{sid}'.format(
@@ -139,13 +142,13 @@ class Ui_QuickLaunch(object):
         )
 
 
-        worksheet.write('A1', 'ID',cell_format)
-        worksheet.write('B1', 'NAME of BHAU',cell_format)
-        worksheet.write('C1', 'BHAU AGE',cell_format)
-        worksheet.write('D1', 'LOACTION', cell_format)
-        worksheet.write('E1', 'GUNTAVNUK', cell_format)
+        worksheet.write('A1', 'OWNER',cell_format)
+        worksheet.write('B1', 'TABLESPACE_NAME',cell_format)
+        worksheet.write('C1', 'TABLE_NAME',cell_format)
+        worksheet.write('D1', 'STATUS', cell_format)
+        worksheet.write('E1', 'NUM_ROWS', cell_format)
 
-        result = engine.execute('select * from CUSTOMERS')
+        result = engine.execute('select OWNER,TABLESPACE_NAME,TABLE_NAME,STATUS,NUM_ROWS from all_tables where NUM_ROWS=100')
         row=1
         col=0
         for i,j,k,l,m in (result):
@@ -178,7 +181,7 @@ class Ui_QuickLaunch(object):
 
     def UATPuttyLogin(self):
         pass
-        """
+        """	
         # FOR MULTIPLE SERVER DETAILS
         app = Application().start(cmd_line=u'putty.exe %s@%s -pw %s' % (username,hostname,sys.argv[2]))
         putty  = app.Putty()
@@ -186,16 +189,17 @@ class Ui_QuickLaunch(object):
         """
 
     def triggerShellScript(self):
-        os.system("sh /path/to/script/laoction/script_name.sh")
+        """this fuction use under linux system"""	
+        print(""" os.system("sh /path/to/script/laoction/script_name.sh")""" )
 
     def sendAutomatedMail(self):
-        reply = qt.QMessageBox.question(self, "Send automate mail", qt.QMessageBox.Yes | qt.MessageBox.Cancel)
-        if reply == qt.QMessageBox.Yes:
+        reply = QMessageBox.question(self, 'Action Require', "Do you want to send mail?", QMessageBox.Yes | QMessageBox.No | QMessageBox.Cancel, QMessageBox.Cancel)
+        if reply == QMessageBox.Yes:
             print("Sending autoamte mail")
 
             outlook = win32.Dispatch('outlook.application')
             mail = outlook.CreateItem(0)
-            mail.To = 'rahulkumeriya@gmail.com,rahulkumeriya@gmail.com'
+            mail.To = 'rahulkumeriya@gmail.com'
             mail.CC = 'rahulkumeriya@gmail.com'
             mail.Subject = 'Automate mail'
             mail.HTMLBody = """
@@ -233,10 +237,9 @@ This is automate mail sent from python Quick launcher app.
         host='127.0.0.1'
         port=1521
         sid='XE'
-        user='XXXXXXXXXX'
-        password='XXXXXXXXXXXX'
+        user='databaseuser'
+        password='Password#1'
         sid = cx_Oracle.makedsn(host, port, sid=sid)
-
         cstr = 'oracle://{user}:{password}@{sid}'.format(
             user=user,
             password=password,
@@ -250,7 +253,6 @@ This is automate mail sent from python Quick launcher app.
             pool_size=50,
             echo=True
         )
-
         result = engine.execute('SELECT SYSDATE FROM DUAL')
 
         for row in result:
@@ -271,11 +273,12 @@ This is automate mail sent from python Quick launcher app.
         webbrowser.open('https://www.google.com/maps/place/' + address)
 
     def puttyLaunch(self):
-        os.system("gnome-terminal 'sudo apt-get update'")
+        '''This fuction will work with Linux'''
+        print("""os.system("gnome-terminal 'sudo apt-get update'")""") 
 
     def triggerPythonScript(self):
-        reply = qt.QMessageBox.question(self, "Send automate mail", qt.QMessageBox.Yes | qt.MessageBox.Cancel)
-        if reply == qt.QMessageBox.Yes:
+        reply = QMessageBox.question(self, "Send automate mail", QMessageBox.Yes | QMessageBox.Cancel)
+        if reply == QMessageBox.Yes:
             subprocess.call("python python_Script_name.py")
         else:
             print("Mission Aborted")
@@ -286,13 +289,12 @@ This is automate mail sent from python Quick launcher app.
         favoriteSite = [
         'https://github.com/',
         'https://www.youtube.com/',
+        'https://www.youtube.com/',
         'https://duckduckgo.com/',
         'https://openai.com/'
         ]
         for url in favoriteSite:
             webbrowser.open(url)
-
-            
 
 
     def retranslateUi(self, QuickLaunch):
