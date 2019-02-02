@@ -1,5 +1,6 @@
 # Quick-Launcher
 
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2499/badge)](https://bestpractices.coreinfrastructure.org/projects/2499)
 
 Python app to perform day-to-day task on single click 
 
