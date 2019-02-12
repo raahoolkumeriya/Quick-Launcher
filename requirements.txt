@@ -1,4 +1,4 @@
-PyQt5==5.11.2
+PyQt5==5.12
 python-qt==0.50
 xlsxwriter==1.0.2
 cx_Oracle==6.2.1
