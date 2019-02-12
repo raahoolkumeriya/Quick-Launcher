@@ -1,6 +1,12 @@
 # Quick-Launcher
 
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2499/badge)](https://bestpractices.coreinfrastructure.org/projects/2499) [![CircleCI](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master.svg?style=svg)](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master) [![Build Status](https://travis-ci.org/raahoolkumeriya/Quick-Launcher.svg?branch=master)](https://travis-ci.org/raahoolkumeriya/Quick-Launcher) ![License](https://img.shields.io/github/license/raahoolkumeriya/Quick-Launcher.svg?style=plastic) 
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2499/badge)](https://bestpractices.coreinfrastructure.org/projects/2499)
+[![CircleCI](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master.svg?style=svg)](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master) 
+[![Build Status](https://travis-ci.org/raahoolkumeriya/Quick-Launcher.svg?branch=master)](https://travis-ci.org/raahoolkumeriya/Quick-Launcher) 
+![License](https://img.shields.io/github/license/raahoolkumeriya/Quick-Launcher.svg?style=plastic) 
+[![Updates](https://pyup.io/repos/github/raahoolkumeriya/Quick-Launcher/shield.svg)](https://pyup.io/repos/github/raahoolkumeriya/Quick-Launcher/)
+[![Python 3](https://pyup.io/repos/github/raahoolkumeriya/Quick-Launcher/python-3-shield.svg)](https://pyup.io/repos/github/raahoolkumeriya/Quick-Launcher/)
+
 
 Quick-Launcher is a tool to perform day-to-day task on single click. It is Python Qt (PyQt) GUI applications.
 
@@ -23,18 +29,11 @@ Usage
 
 Install required dependecies
 
+## Requirement (Python Packages added in script):
+
 ```
 	pip install -r requirements.txt
 ```
-
-## Requirement (Python Packages added in script): 
-Package|Version
------|-----
-PyQt5| 5.9.2
-xlsxwriter|1.1.2
-sqlalchemy|1.2.15
-cx_Oracle| 7.0.0
-pyperclip|1.7.0
 
 
 Development
