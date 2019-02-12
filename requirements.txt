@@ -2,6 +2,6 @@ PyQt5==5.12
 python-qt==0.50
 xlsxwriter==1.1.4
 cx_Oracle==7.1.0
-sqlalchemy==1.2.7
+sqlalchemy==1.2.17
 pyperclip==1.7.0
 pywinauto==0.6.5
