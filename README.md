@@ -1,6 +1,6 @@
 # Quick-Launcher
 
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2499/badge)](https://bestpractices.coreinfrastructure.org/projects/2499) [![CircleCI](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master.svg?style=svg)](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master) [![Build Status](https://travis-ci.org/raahoolkumeriya/Quick-Launcher.svg?branch=master)](https://travis-ci.org/raahoolkumeriya/Quick-Launcher)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/2499/badge)](https://bestpractices.coreinfrastructure.org/projects/2499) [![CircleCI](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master.svg?style=svg)](https://circleci.com/gh/raahoolkumeriya/Quick-Launcher/tree/master) [![Build Status](https://travis-ci.org/raahoolkumeriya/Quick-Launcher.svg?branch=master)](https://travis-ci.org/raahoolkumeriya/Quick-Launcher) ![License](https://img.shields.io/github/license/raahoolkumeriya/Quick-Launcher.svg?style=plastic) 
 
 Quick-Launcher is a tool to perform day-to-day task on single click. It is Python Qt (PyQt) GUI applications.
 
